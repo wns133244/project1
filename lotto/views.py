@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from lotto.models import GuessNumbers
+from lotto.models import GuessNumbers, Location
 from .forms import *
 
 def index(request):
