@@ -1,0 +1,28 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+<div class="page-header">
+ <h1>My Lotto Page</h1>
+</div>
+
+{% for lotto in lottos %}
+<div class="container lotto">
+ <h2>{{ lotto.name }}</h2>
+ <p>{{ lotto.update_date }}</p>
+ <p>{{ lotto.lottos }}</p>
+</div>
+
+<div id="map" style="width:500px;height:400px;"></div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b1da787d0622c706d149bcd6a4c931a"></script>
+<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new daum.maps.LatLng({{ location.lat }}, {{ location.lng }}),
+			level: 3
+		};
+
+		var map = new daum.maps.Map(container, options);
+	</script>
+{% endfor %}
